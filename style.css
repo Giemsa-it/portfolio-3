@@ -40,6 +40,10 @@ main {
     align-items: center;
 }
 
+.left p {
+    width: 52rem;
+    font-size: 2rem;
+}
 .right {
     width: 52rem;
     font-size: 2rem;
