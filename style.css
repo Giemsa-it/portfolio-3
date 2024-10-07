@@ -121,3 +121,31 @@ h1 {
 .label-score {
     margin-bottom: 2rem;
 }
+
+
+/* Light Mode */
+.light-mode {
+    background-color: #fff;
+    color: #222;
+}
+
+.light-mode .number {
+    background: #333;
+    color: #eee;
+}
+
+.light-mode .btn {
+    background-color: #222;
+    color: #eee;
+}
+
+
+.light-mode .btn:hover {
+    background-color: #444;
+}
+
+.light-mode input,
+.light-mode .guess {
+    border-color: #222;
+    color: #222;
+}

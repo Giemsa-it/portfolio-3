@@ -5,6 +5,7 @@ const highScoreElement = document.querySelector(".highscore")
 const againElement = document.querySelector("#btn-again")
 const questionMark = document.querySelector(".number")
 const guessesElement = document.querySelector("#guesses");
+const body = document.querySelector("body");
 
 
 let randomNumber = Math.floor(Math.random() * 21);
@@ -39,6 +40,8 @@ const getNumber = () => {
             origin: { y: 0.6 }
         });
 
+        body.classList.add("light-mode");
+
         if (highScore === null || totalScore < highScore) {
             highScore = totalScore
             highScoreElement.textContent = highScore;
@@ -70,6 +73,8 @@ const resetScore = () => {
     highScore = 0
     guesses = [];
     guessesElement.textContent = "";
+
+    body.classList.remove("light-mode");
 }
 
 
