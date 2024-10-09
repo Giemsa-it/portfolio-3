@@ -8,9 +8,14 @@ const guessesElement = document.querySelector("#guesses");
 const body = document.querySelector("body");
 
 
-let randomNumber = Math.floor(Math.random() * 21);
+function updateHighScore(){
+    highScore = totalScore
+    highScoreElement.textContent = highScore;
+}
 
-let totalScore = 0
+let randomNumber = Math.floor(Math.random() * 20) + 1;
+
+    let totalScore = 0
 scoreElement.textContent = totalScore
 
 let highScore = null
@@ -21,8 +26,8 @@ let guesses = [];
 const getNumber = () => {
     const userNumber = Number(input.value);
 
-    if (userNumber < 0 || userNumber > 20 || isNaN(userNumber)) {
-        alert("Please enter a number between 0 and 20")
+    if (userNumber < 1 || userNumber > 20 || isNaN(userNumber)) {
+        alert("Please enter a number between 1 and 20")
         input.value = "";
         return false;
     }
@@ -43,11 +48,10 @@ const getNumber = () => {
         body.classList.add("light-mode");
 
         if (highScore === null || totalScore < highScore) {
-            highScore = totalScore
-            highScoreElement.textContent = highScore;
+            updateHighScore()
         }
 
-        randomNumber = Math.floor(Math.random() * 21);
+        randomNumber = Math.floor(Math.random() * 20) + 1;
         totalScore = 0;
         scoreElement.textContent = totalScore;
         input.value = "";
@@ -70,11 +74,12 @@ const resetScore = () => {
     highScoreElement.textContent = 0
     scoreElement.textContent = 0
     totalScore = 0
-    highScore = 0
+    highScore = null
     guesses = [];
     guessesElement.textContent = "";
-
-    body.classList.remove("light-mode");
+    questionMark.textContent = "?"
+    randomNumber = Math.floor(Math.random() * 20) + 1;
+    body.classList.remove("light-mode")
 }
 
 
